@@ -1,0 +1,192 @@
+html {
+  font-family: 'Roboto', Arial;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+.layer-wrapper {
+  position: relative;
+  margin: 3rem auto;
+  width: 66rem;
+  font-size: 1.6rem;
+}
+
+.layer {
+  display: block;
+  position: absolute;
+  width: 20rem;
+  border-radius: 2px;
+  -webkit-transition: top ease-out 0.5s, left ease-out 0.5s,  width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: top ease-out 0.5s, left ease-out 0.5s, width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: top ease-out 0.5s, left ease-out 0.5s, width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+  outline: none;
+}
+
+.active {
+  background-color: white;
+  -webkit-transition: height cubic-bezier(0.190, 1.000, 0.220, 1.000), width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: height cubic-bezier(0.190, 1.000, 0.220, 1.000), width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: height cubic-bezier(0.190, 1.000, 0.220, 1.000), width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: height cubic-bezier(0.190, 1.000, 0.220, 1.000), width cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+
+.visited {
+  background-color: #CCCCCC;
+  border-color: #CCCCCC;
+}
+.visited header {
+  color: #A7AEAC;
+}
+
+.done {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-image: url("images/done.png");
+  background-size: cover;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.layer-content header {
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem 2rem 1rem 0;
+  color: #0071ab;
+}
+
+.layer-content article {
+  opacity: 0;
+  -webkit-transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+#layer1 .header-img, #layer2 .header-img,
+#layer3 .header-img, #hidden_layer .header-img{
+  width: 20rem;
+  height: 12rem;
+  -webkit-transition: width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+}
+
+#layer1 .header-img img, #layer2 .header-img img,
+#layer3 .header-img img, #hidden_layer .header-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#hidden_layer .header-img img, #hidden_layer header{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+
+.layer-content .description{
+  opacity: 1;
+}
+.active article, .active .description {
+  white-space: normal;
+  line-height: 20px;
+  text-align: left;
+}
+
+.active header {
+  font-size: 3rem;
+  -webkit-transition: font-size 0.5s .7s;
+  -moz-transition: font-size 0.5s .7s;
+  -ms-transition: font-size 0.5s .7s;
+  -o-transition: font-size 0.5s .7s;
+  transition: font-size 0.5s .7s;
+}
+
+.active .description {
+  opacity: 0;
+}
+
+.active header {
+  cursor: auto !important;
+  pointer-events: none !important;
+}
+
+.layer:hover header {
+  background-color: white;
+  cursor: pointer;
+}
+
+#layer1 {
+  top: 0;
+  left: 0;
+}
+
+#layer2 {
+  top: 0;
+  left: 23rem;
+}
+
+#layer3 {
+  top: 0;
+  left: 46rem;
+}
+
+#hidden_layer {
+  width: 20rem;
+  height: 12rem;
+  top: 20rem;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+.active .close {
+  opacity: 1;
+}
+
+.close {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  opacity: 0;
+  background-image: url("images/ic_close.png");
+  background-size: cover;
+  cursor: pointer;
+  -webkit-transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
+  -moz-transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
+  transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s; /* easeInSine */
+  z-index: 1;
+}
+
+.close:hover{
+  opacity: 0.5;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.on-top {
+  z-index: 101;
+}
+
+.visible {
+  opacity: 1 !important;
+  transition:         opacity .5s ease-out;
+  -moz-transition:    opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+}
