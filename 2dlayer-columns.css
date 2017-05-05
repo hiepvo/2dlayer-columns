@@ -65,9 +65,6 @@ html {
 
 .layer-content article {
   opacity: 0;
-  -webkit-transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  -moz-transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  transition: opacity cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
 
 #layer1 .header-img, #layer2 .header-img,
@@ -103,6 +100,17 @@ html {
   line-height: 20px;
   text-align: left;
 }
+
+.active article {
+  white-space: normal;
+  line-height: 20px;
+  text-align: left;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+}
+
 
 .active header {
   font-size: 3rem;

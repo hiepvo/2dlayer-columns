@@ -27,7 +27,7 @@
 
     var article           = document.querySelector('#' + el.parentNode.id + ' div.description~article');
     article.style.opacity = 0;
-
+    article.style.transitionDelay = '0s';
     var img_container                      = document.querySelector('#' + el.parentNode.id + ' .header-img');
     img_container.style.width              = container_width + 'rem';
     img_container.style.transitionDuration = '.75s';
@@ -107,6 +107,9 @@
     var header_content = document.querySelector('#' + currentEl.id + ' .header-img~header');
 
     //removeClass(close, 'hide');
+    allDescriptions.forEach(function(el){
+      addClass(el, 'hide');
+    });
 
     if(lastActive.className.indexOf('active') !== -1){
       closeSlide(lastActive);
@@ -125,10 +128,11 @@
         hidden_layer.style.left = currentEl.offsetLeft + 'px';
 
       }, 750);
-
+      article.style.opacity             = 1;
+      article.style.transitionDelay     = '1.95s';
+      article.style.transitionDuration     = '1s';
       if(lastChild.offsetTop !== currentEl.offsetTop){
         addClass(content, 'active');
-
         setTimeout(function(){
 
           var aDiv                         = document.getElementsByClassName('active')[0];
@@ -140,16 +144,9 @@
           currentEl.style.transitionDuration = '0.75s';
           inProgress                         = false;
 
-          article.style.opacity             = 1;
-          description.style.opacity         = 1;
-          article.style.transitionDelay     = '.2s';
-          description.style.transitionDelay = '.2s';
-
           img_container.style.width              = '66rem';
           img_container.style.transitionDuration = '.75s';
-          allDescriptions.forEach(function(el){
-            addClass(el, 'hide');
-          })
+
           removeClass(article, 'hide');
         }, 1500);
       }
@@ -167,14 +164,16 @@
       var aDiv                      = document.getElementsByClassName('active')[0];
       aDiv.style.transitionDuration = '2.5s';
 
+      article.style.opacity                  = 1;
+      article.style.transitionDelay          = '1.2s';
+      article.style.transitionDuration          = '1s';
       addClass(hidden_layer, 'visible');
       setTimeout(function(){
         content.style.maxHeight                = maxHeight + 'px';
         content.style.transitionDuration       = '.75s';
         currentEl.style.width                  = '100%';
         currentEl.style.transitionDuration     = '.75s';
-        article.style.opacity                  = 1;
-        article.style.transitionDelay          = '.2s';
+
         h_header.innerHTML                     = header_content.innerHTML;
         img_container.style.width              = '66rem';
         img_container.style.transitionDuration = '.75s';
