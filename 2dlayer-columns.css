@@ -91,6 +91,7 @@ html {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   filter: grayscale(100%);
+  pointer-events: none;
 }
 
 
@@ -105,11 +106,9 @@ html {
 
 .active header {
   font-size: 3rem;
-  -webkit-transition: font-size 0.5s .7s;
-  -moz-transition: font-size 0.5s .7s;
-  -ms-transition: font-size 0.5s .7s;
-  -o-transition: font-size 0.5s .7s;
-  transition: font-size 0.5s .7s;
+  -webkit-transition: font-size 0.5s ease-out .7s;
+  -moz-transition: font-size 0.5s ease-out .7s;
+  transition: font-size 0.5s ease-out .7s;
 }
 
 .active .description {
