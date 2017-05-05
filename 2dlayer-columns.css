@@ -177,6 +177,9 @@ html {
   z-index: 1;
 }
 
+.column {
+  cursor: pointer;
+}
 .close:hover{
   opacity: 0.5;
 }
